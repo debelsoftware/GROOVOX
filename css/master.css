@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto:900|Nunito:200');
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0);
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body,html{
+  background-color: #121212;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+h1{
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+h2{
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+p{
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+nav{
+  text-align: left;
+  padding: 20px;
+}
+nav>img{
+  display: inline;
+  width: 150px;
+  vertical-align: middle;
+}
+nav>h1{
+  display: inline;
+  vertical-align: middle;
+  color: #afcadb;
+  font-family: 'Nunito', sans-serif;
+}
+nav>span{
+  display: inline;
+  margin-left: 10px;
+  vertical-align: sub;
+  color: #afcadb;
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+}
+input{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  outline: none;
+  background-color: white;
+  border-radius: 40px;
+  height: 10px;
+  border: none;
+  width: 80%;
+  display: inline;
+  max-width: 900px;
+  padding: 20px;
+}
+button{
+  transition: all 0.2s;
+  background-color: rgba(0,0,0,0);
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  padding: 10px;
+  border: solid 2px white;
+  border-radius: 50px;
+  font-family: 'Roboto', sans-serif;
+  width: 100px;
+  outline: none;
+}
+button:hover{
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+.player{
+  display: grid;
+  grid-template-columns: 1fr 0.7fr 1fr;
+  grid-template-rows: ;
+  grid-template-areas: ". . .";
+  background-color: #212121;
+  text-align: left;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  z-index: 999;
+  overflow: hidden;
+}
+.song-info{
+  padding: 5px 0 0 10px;
+  overflow-x: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+.searchbar{
+  width: 90%;
+  margin: auto;
+}
+.search-results{
+  margin: 20px auto 0 auto;
+  width: 80%;
+  max-width: 1000px;
+  height: calc(60vh - 110px);
+  overflow-y: scroll;
+}
+.result{
+  transition: all 0.2s;
+  width: 90%;
+  margin: 0 auto 10px auto;
+  padding: 15px;
+  text-align: left;
+  background-color: #535353;
+}
+.result:hover{
+  transform: scale(1.02);
+  cursor: pointer;
+}
+.album-art{
+  display: inline;
+  width: 100px;
+}
+.overlay{
+  display: none;
+  position: fixed;
+  padding-top: 50px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+@keyframes riseUp {
+  0%{
+    opacity: 0;
+    transform: translateY(70px);
+  }
+}
+.chosen-song{
+  animation-name: riseUp;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+  background-color: #212121;
+  display: block;
+  width: 90%;
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+}
+.chosen-song>img{
+  width: 300px;
+}
+.chosen-song>button{
+  width: 200px;
+  margin: 30px 0 5px 0;
+}
+.audio-controls{
+  text-align: center;
+}
+.audio-controls>img{
+  width: 30px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 100%;
+  border: 2px solid white;
+}
+.audio-controls>img:hover{
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.playlist-button{
+  margin: 20px;
+  width: 40px;
+}
+.playlist-button:hover{
+  cursor: pointer;
+}
+.player-right{
+  text-align: right;
+  padding-right: 30px;
+}
+.playlist-window{
+  display: none;
+  animation-name: riseUp;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  text-align: center;
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  max-height: 500px;
+  width: 350px;
+  height: calc(90vh - 140px);
+  background-color: #212121;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  overflow-y: scroll;
+  border: 15px solid #212121;
+  z-index: 9999;
+}
+.playlist-item{
+  text-align: left;
+  background-color: #535353;
+  padding: 5px;
+  margin: 10px 10px 10px 0;
+  display: block;
+}
+.playlist-item-info{
+  padding-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.playlist-item-info>p{
+  display: block;
+}
+.playlist-item>img{
+  display: inline;
+  margin-left: 5px;
+  vertical-align: middle;
+  width: 80px;
+}

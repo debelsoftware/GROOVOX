@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false;">
+  <head>
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#0e0e0e">
+    <meta name="msapplication-TileColor" content="#0e0e0e">
+    <meta name="theme-color" content="#0e0e0e">
+    <link rel="stylesheet" href="../css/master.css">
+    <title>GROOVOX - Spotify Jukebox</title>
+  </head>
+  <body onload="getToken('init')">
+    <div class="playlist-window" id="playlist-window">
+      <p>No song added yet</p>
+    </div>
+    <div id="song-overlay" class="overlay">
+      <div class="chosen-song">
+        <img id="song-cover" src="" alt="">
+        <h1 id="song-name">Song Name</h1>
+        <h2 id="song-artist">Artist</h2>
+        <button type="button" onclick="addToQueue()"name="button">Add to queue</button>
+        <button type="button" onclick="closePopup()" name="button">Close</button>
+      </div>
+    </div>
+    <nav>
+      <h1>GROOVOX</h1>
+      <span>powered by Spotify</span>
+    </nav>
+    <main>
+      <section>
+        <h1>Add a song to queue</h1>
+        <p>Search for a song below to add it to the queue</p>
+        <div class="searchbar">
+          <input id="searchInput" type="text" placeholder="Search for a song" name="" value="">
+          <button type="button" onclick="trackSearch()" class="search-button" name="button">Search</button>
+        </div>
+      </section>
+      <section id="search-results" class="search-results">
+        <h1>Please log in to spotify</h1>
+        <p>If you can't see the sign in window, please make sure pop-ups are allowed</p>
+      </section>
+    </main>
+    <section class="player">
+      <div class="">
+        <img id="playing-cover" class="album-art" src="../img/defaultCover.jpg" alt="">
+        <div class="song-info">
+          <h1 id="playing-name">No song loaded</h1>
+          <p id="playing-artist"></p>
+        </div>
+      </div>
+      <div class="audio-controls">
+        <img onclick="playPause()" id="playPause" src="../img/play.svg" alt="">
+        <img onclick="skip()" src="../img/skip.svg" alt="">
+      </div>
+      <div class="player-right">
+        <img onclick="togglePlaylistWindow()" class="playlist-button" src="../img/list.svg" alt="">
+      </div>
+    </section>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  </body>
+  <script src="../js/player-script.js" charset="utf-8"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96193149-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-96193149-4');
+  </script>
+</html>

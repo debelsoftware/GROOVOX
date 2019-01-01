@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+      @import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto:900|Nunito:200');
+      body,html{
+        background-color: #121212;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+      }
+      P{
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+    <title>GROOVOX - token getter</title>
+  </head>
+  <body>
+    <p>Getting Token...</p>
+    <img src="../img/loading.svg" width="100px" alt="">
+  </body>
+  <script type="text/javascript">
+    let token = window.location.hash.substr(1).split('&')[0].split("=")[1];
+    if (token) {
+      console.log("got ", token);
+      localStorage.setItem('authToken', token);
+    }
+    else {
+      console.log("no token");
+      localStorage.setItem('authToken', "NA");
+    }
+  </script>
+</html>
