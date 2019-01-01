@@ -1,3 +1,2 @@
 # GROOVOX
-A jukebox interface for spotify
-Hosted at https://groovox.app
+A jukebox interface for Spotify, hosted at https://groovox.app
