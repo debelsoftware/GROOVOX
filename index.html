@@ -10,11 +10,13 @@
     <meta name="msapplication-TileColor" content="#0e0e0e">
     <meta name="theme-color" content="#0e0e0e">
     <link rel="stylesheet" href="./css/frontpage.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GROOVOX - Spotify Jukebox</title>
+    <meta name="description" content="A jukebox interface for Spotify. GROOVOX provides a jukebox style interface for your guests with all the non-essential features stripped away">
   </head>
   <body>
     <div class="branding">
-      <h1>GROOVOX beta</h1>
+      <h1>GROOVOX</h1>
       <p>Jukebox interface for Spotify</p>
     </div>
     <p>Stop people from messing with your account during a party. GROOVOX provides a simple, jukebox style, interface for your guests with all the non-essential features stripped away. With Spotify Premium integration, your guests have full access to Spotify's library without destroying your personal playlists.</p>
@@ -22,9 +24,22 @@
       <h2>IMPORTANT STEPS:</h2>
       <p>You must click 'remember me' on the Spotify login so that GROOVOX can stay logged in throughout your session.</p>
       <p>You must click 'always allow' allow the login popup to auto-refresh auth tokens.</p>
-      <p>You must have Spotify Premium</p>
+      <p>You must have Spotify Premium.</p>
+      <p>It is recommended that you turn off the 'autoplay' feature in the Spotify app to stop it overriding songs.</p>
     </div>
-    <a class="start-button" href="/app">Start up the jukebox!</a>
+    <h2>OPTIONS:</h2>
+    <div class="options">
+      <input type="checkbox" value="" id="skip"><p>Hide skip button</p>
+      <br>
+      <input type="checkbox" value="" id="pause"><p>Hide pause button</p>
+    </div>
+    <h2>BACKGROUND PLAYLIST (OPTIONAL):</h2>
+    <p>Add a playlist URI to play songs from when nobody has chosen a song (MAXIMUM 50 TRACKS).</p>
+    <p>To get a playlist URI, right click on the playlist on spotify, hover over 'Share' and click 'Copy Spotify URI'</p>
+    <div class="options">
+      <input id="uri" class="uri" type="text" name="" value="" placeholder="eg. spotify:playlist:37i9dQZF1DX0MXH7aN4Pxn">
+    </div>
+    <a class="start-button" onclick="start()">Start up the jukebox!</a>
     <p>Runs best on Chrome or Firefox</p>
     <div class="credit">
       <p>This app was made by Lewis Debenham</p>
@@ -35,4 +50,17 @@
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+    function start(){
+      window.location = `/app?hideSkip=${document.getElementById('skip').checked}&hidePause=${document.getElementById('pause').checked}&bgPlaylist=${document.getElementById('uri').value}`
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96193149-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-96193149-4');
+  </script>
 </html>

@@ -12,12 +12,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
+html{
+  background: #121212;
+}
 body,html{
-  background-color: #121212;
   text-align: center;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+}
+main{
+  margin-top: 100px;
 }
 h1{
   color: white;
@@ -36,6 +41,12 @@ p{
 nav{
   text-align: left;
   padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(3px);
 }
 nav>img{
   display: inline;
@@ -112,12 +123,23 @@ button:hover{
   width: 90%;
   margin: auto;
 }
+.backdrop{
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
 .search-results{
-  margin: 20px auto 0 auto;
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   width: 80%;
-  max-width: 1000px;
-  height: calc(60vh - 110px);
+  height: 80vh;
+  max-width: 1200px;
   overflow-y: scroll;
+  z-index: 99999999
 }
 .result{
   transition: all 0.2s;
@@ -144,7 +166,8 @@ button:hover{
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
 }
 @keyframes riseUp {
   0%{
@@ -195,6 +218,16 @@ button:hover{
   text-align: right;
   padding-right: 30px;
 }
+.playlist{
+  display: run-in;
+  transition: all 0.3s;
+  width: 200px;
+  margin: 10px;
+}
+.playlist:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+}
 .playlist-window{
   display: none;
   animation-name: riseUp;
@@ -233,4 +266,42 @@ button:hover{
   margin-left: 5px;
   vertical-align: middle;
   width: 80px;
+}
+#browser{
+  margin-bottom: 140px;
+}
+#loading{
+  margin-top: 10px;
+}
+#warnings{
+  margin-top: 20px;
+}
+.scroll-tracks{
+  margin: 10px auto 20px auto;
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+}
+#below-search{
+  display: none;
+  margin: 30px auto 30px auto;
+  text-align: left;
+  width: 80%;
+  max-width: 1200px;
+}
+#tapstart{
+  position: fixed;
+  display: none;
+  z-index: 99999999999999;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+#tapstart h1{
+  display: table-cell;
+  vertical-align: middle;
+  text-align:center;
 }
